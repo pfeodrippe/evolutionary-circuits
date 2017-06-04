@@ -1,6 +1,6 @@
 from math import log
 
-title = 'Low-pass filter'
+title = 'High-pass filter'
 
 #List of simulations
 #Put SPICE simulation options between.control and .endc lines
