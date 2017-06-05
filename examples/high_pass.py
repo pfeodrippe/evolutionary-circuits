@@ -31,18 +31,18 @@ def _fitness_function1(f,k,**kwargs):
     """k is the name of measurement. eq. v(out)"""
     if k[0]=='v':
         #-100dB/decade
-        return -43.43*log(f)+300 if f<=1000 else 0
+        return 43.43*log(f+1)-300 if f<1000 else 0
     elif k[0]=='i':
         #Goal for current use is 0
         return 0
 
 def _constraint1(f,x,k,**kwargs):
     if k[0]=='v':
-        if f>8000:
+        if f<100:
             return x <= -20
-        if f>1000:
+        if f<1000:
             return x<=0.5
-        elif f<100:
+        elif f>8000:
             return -5<x<3
         else:
             return -2<x<1
